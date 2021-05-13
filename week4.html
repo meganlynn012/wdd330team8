@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8" />
+    <title>Team 8 Home</title>
+    <link rel="stylesheet" href="small.css">
+  </head>
+  <body>
+
+    <h3>Build a 3X3 board in HTML and CSS.</h3>
+<p>You could do this with either a table element, or a collection of divs. Both have their advantages and disadvantages.</p>
+
+<section class="tictac">
+<div class="box row1 col1" onclick="markIt()">
+</div>
+
+
+<!--<div class="box row1 col2">
+</div>
+<div class="box row1 col3">
+</div>
+<div class="box row2 col1">
+</div>
+<div class="box row2 col2">
+</div>
+<div class="box row2 col3">
+</div>
+<div class="box row3 col1">
+</div>
+<div class="box row3 col2">
+</div>
+<div class="box row3 col3">
+</div>-->
+</section>
+
+ <h3>Attach a touchend listener to the board.</h3>
+When a cell is touched it should add either an 'X or an 'O', depending on whether it is player 1 or player 2's turn.
+
+ <h3>Add a reset button.</h3>
+When touched the reset button should remove all of the marks from the board.
+
+<script>
+
+/*const test = "megan";
+const test1 = `Hello ${test}`;
+const test2 = "Hello " + test;
+console.log(test1);
+console.log(test2);*/
+
+function markIt(entity){
+    entity.innerHTML = "X";
+    console.log("inside");
+}
+
+const tictacBox = document.querySelectorAll(".box");
+tictacBox.forEach(_box => _box.addEventListener('click', markIt(this), false));
+
+
+</script>
+
+  </body>
+  </html>
