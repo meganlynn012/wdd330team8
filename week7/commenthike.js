@@ -1,27 +1,27 @@
-//let hikeName = document.
-
-let commentList = [];
-
-
-
-function add() {
-    const input = document.getElementById("commentBody").value;
-    console.log(input);
+function getComments()
+{
+    // Return comments as array.
+    const commentsString = window.localStorage.getItem("comments");
+    const comments = JSON.parse(commentsString);
+    return comments;
 }
-    /*if (input !== "") {
-        const commentObject = {
-            name: hikeName,
-            date: new Date(),
-            content: comment,
-            id: Date.now()
-        }
-        commentList.push(commentObject);
-        storage(commentList);
-        document.getElementById("commentBody").value= "";
-     }
-};
 
-function storage(commentList) {
-    console.log(commentList);
-}*/
-export { add };
+function storeComment(commentBody, hikeName) {
+    const comment = {
+        content: commentBody,
+        hikeName: hikeName,
+        date: new Date()
+    };
+    // Add input to local storage.
+    let comments = getComments();
+    if (!comments)
+    {
+        console.log("Initializing comment array.");
+        comments = [];
+    }
+    comments.push(comment);
+    // localStorage only supports strings, so store the array in the form of a JSON string.
+    window.localStorage.setItem("comments",JSON.stringify(comments));
+}
+
+export {storeComment, getComments}
