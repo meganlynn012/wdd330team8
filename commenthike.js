@@ -1,3 +1,10 @@
+function getComments()
+{
+    // Return comments as array.
+    const commentsString = window.localStorage.getItem("comments");
+    const comments = JSON.parse(commentsString);
+    return comments;
+}
 
 function storeComment(commentBody, hikeName) {
     const comment = {
@@ -5,7 +12,16 @@ function storeComment(commentBody, hikeName) {
         hikeName: hikeName,
         date: new Date()
     };
-    console.log(comment);
     // Add input to local storage.
+    let comments = getComments();
+    if (!comments)
+    {
+        console.log("Initializing comment array.");
+        comments = [];
+    }
+    comments.push(comment);
+    // localStorage only supports strings, so store the array in the form of a JSON string.
+    window.localStorage.setItem("comments",JSON.stringify(comments));
+    console.log(getComments());
 }
 export { storeComment };
