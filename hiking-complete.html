@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Great Hikes (dynamic DOM example)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="hikestyle.css">
+  </head>
+
+  <body>
+    <main>
+      <h1>Great hikes</h1>
+      <ul id="hikes" class="hikeStyles"></ul>
+    </main>
+
+  <form class="commentSubmission">
+    <label for="hikes">Choose a hike</label>
+    <select name="hikes" id="hikeName">
+      <option value="Bechler Falls">Bechelor Falls</option>
+      <option value="Teton Canyon">Teton Canyon</option>
+      <option value="Denanda Falls">Denanda Falls</option>
+    </select>
+<input type="textbox" name = "comment" id="commentBody" placeholder="Enter your comment here..."></input>
+<input type="submit" value="Submit Comment"></input>
+  </form>
+
+  <section id="listBody">
+
+
+  </section>
+
+    <script src="app5.js" type="module"></script>
+  </body>
+</html>
