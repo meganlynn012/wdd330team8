@@ -1,7 +1,7 @@
 // Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
 
 //create an array of hikes
-
+import { storeComment, getComments, showCommentsList } from './commenthike.js';
 
 const hikeList = [{
         name: 'Bechler Falls',
@@ -66,6 +66,7 @@ export default class Hikes {
             // show the back button
             this.backButton.classList.remove('hidden');
             document.querySelector('.commentSubmission ').classList.remove('hidden');
+            showCommentsList(hikeName);
         }
         // in order to show the details of a hike ontouchend we will need to attach a listener AFTER the list of hikes has been built. The function below does that.
     addHikeListener() {
@@ -83,6 +84,7 @@ export default class Hikes {
         backButton.innerHTML = '&lt;- All Hikes';
         backButton.addEventListener('click', () => {
             this.showHikeList();
+            showCommentsList();
         });
         backButton.classList.add('hidden');
         this.parentElement.before(backButton);
