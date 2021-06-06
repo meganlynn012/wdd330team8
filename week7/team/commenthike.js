@@ -23,6 +23,8 @@ function storeComment(commentBody, hikeName) {
 }
 
 function showCommentsList(query = null) {
+    const liElements = document.querySelectorAll('li');
+    liElements.length > 1 ? query = query : query = liElements[0].dataset.name;
     const comments = getComments(query);
     const commentList = document.getElementById("commentList");
     commentList.innerHTML = "";

@@ -15,7 +15,7 @@ document.querySelector(".commentSubmission").addEventListener("submit", (event) 
     const hikeName = document.querySelector('li').dataset.name;
     storeComment(commentBody, hikeName);
     document.getElementById("commentBody").value = "";
-    showCommentsList();
+    showCommentsList(hikeName);
 });
 
 document.querySelector(".resetBtn").addEventListener("click", () => {

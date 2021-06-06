@@ -84,6 +84,7 @@ export default class Hikes {
         backButton.innerHTML = '&lt;- All Hikes';
         backButton.addEventListener('click', () => {
             this.showHikeList();
+            showCommentsList();
         });
         backButton.classList.add('hidden');
         this.parentElement.before(backButton);
