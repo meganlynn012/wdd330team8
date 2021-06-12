@@ -1,0 +1,41 @@
+dt {
+    font-weight: bold;
+}
+
+​ dd {
+    margin: 2px 10px;
+}
+
+​ dl>* {
+    display: inline;
+}
+
+​ dl {
+    margin-bottom: 20px;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    box-shadow: #5c5346 1px 1px 5px 1px;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+​ .buttons {
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+​ button {
+    width: 20%;
+    height: 30px;
+}
+
+.person {
+    border: 1px solid black;
+}
+
+.people {
+    width: 50%;
+    margin: 1em;
+}
