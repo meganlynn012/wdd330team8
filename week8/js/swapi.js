@@ -26,9 +26,12 @@ function fetchPeople(url = nextURL) {
 function displayPeople(peopleList) {
     document.getElementById("descriptionDiv").innerHTML = "";
     document.getElementById("descriptionDiv").classList = 'people';
-    for (const i in peopleList) {
-        const person = peopleList[i];
+    for (let person of peopleList) {
         const personDisplayElement = document.createElement("dl");
+        // personDisplayElement.addEventListener('click', () => {
+        //     // Display modal with data from person
+        //     return
+        // });
         personDisplayElement.classList.add('pagination');
         personDisplayElement.classList.add('person');
         elements = [
