@@ -4,7 +4,7 @@ let previousURL = null;
 // Fetch a list of people from the Star Wars API.
 // The "next" parameter tells the function whether to fetch the next list of 10 people,
 // or the previous list of 10 people.
-function fetchPeople(url) {
+function fetchPeople(url = nextURL) {
     // let url = "";
     // if (next) {
     //     url = nextURL;
@@ -17,8 +17,8 @@ function fetchPeople(url) {
         // numPeople = json["count"];
         createNavigation(json["count"], json["previous"], json["next"]);
         // Disable "next" & "previous" buttons if there is no use for them.
-        document.getElementById("next").disabled = nextURL ? false : true;
-        document.getElementById("previous").disabled = previousURL ? false : true;
+        // document.getElementById("next").disabled = nextURL ? false : true;
+        // document.getElementById("previous").disabled = previousURL ? false : true;
         return displayPeople(json["results"]);
     });
 }
@@ -62,18 +62,23 @@ function createNavigation(_numOfPeople, _prevUrl, _nextUrl) {
     buttonContainer.innerHTML = "";
     previousButton = document.createElement('button');
     previousButton.setAttribute('id', 'previous');
-    previousButton.addEventListener('click', fetchPeople(_prevUrl));
+    previousButton.addEventListener('click', function() { fetchPeople(_prevUrl) });
+    !_prevUrl ? previousButton.setAttribute('disabled', "TRUE") : null;
     previousButton.innerHTML = "&#8249;";
     buttonContainer.appendChild(previousButton);
-    numPages = _numOfPeople % 10 == 0 ? _numOfPeople % 10 : _numOfPeople % 10 + 1;
-    for (x = 1; x < numPages; x++) {
-        pageA = document.createElement('a');
-        pageA.textContent = x;
-        pageA.classList.add('pageIndex');
-        buttonContainer.appendChild('pageA');
+    numPages = _numOfPeople % 10 == 0 ? (parseInt(_numOfPeople) / 10) : (parseInt(_numOfPeople / 10) + 1);
+    for (x = 1; x <= numPages; x++) {
+        pageButton = document.createElement('button');
+        newUrl = "http://swapi.dev/api/people/?page=" + x;
+        pageButton.addEventListener('click', function() { fetchPeople(`http://swapi.dev/api/people/?page=${x}`) });
+        pageButton.textContent = x;
+        pageButton.classList.add('pageIndex');
+        buttonContainer.appendChild(pageButton);
     }
+    nextButton = document.createElement('button');
     nextButton.setAttribute('id', 'next');
-    nextButton.addEventListener('click', fetchPeople(_nextUrl));
+    nextButton.addEventListener('click', () => { fetchPeople(_nextUrl) });
+    !_nextUrl ? nextButton.setAttribute('disabled', "TRUE") : null;
     nextButton.innerHTML = "&#8250;";
     buttonContainer.appendChild(nextButton);
 }
