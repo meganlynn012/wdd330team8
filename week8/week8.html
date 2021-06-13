@@ -8,25 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" type="text/css" href="css/swapi.css">
+    <link rel="stylesheet" type="text/css" href="css/modal.css">
     <title>Week 8 Team Activity</title>
 </head>
 ​
 
 <body onload="fetchPeople()">
-    <header>
-        <h1>Emily Patrick</h1>
-        <h2>WDD 330</h2>
-        <nav>
-            <ul>
-                <li>
-                    <a href="/index.html" title="Home">Home</a>
-                </li>
-                <li>
-                    <a href="/QuizNinja/index.html" title="Quiz Ninja Projct">Quiz Ninja</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+
     <main>
         <div id="descriptionDiv">
             ​
@@ -36,6 +24,14 @@
             <button id="next" onclick="fetchPeople()">Next</button> -->
         </div>
     </main>
+
+    <section class="modal" id="showModal">
+        <span class="close">&times;</span>
+        <div class="modalContent" id="modalDetails">
+
+        </div>
+
+    </section>
     <script src="js/swapi.js"></script>
 </body>
 ​

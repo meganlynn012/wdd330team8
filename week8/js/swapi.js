@@ -30,11 +30,21 @@ function displayPeople(peopleList) {
         const personDisplayElement = document.createElement("dl");
         personDisplayElement.addEventListener('click', () => {
             // Display modal with data from person
-            // Here is your code section...
-            alert('Persons Name: ' + person['name'] +
-                "\n" + person['name'] + "'s Height: " +
-                person['height']);
+            document.getElementById("showModal").style.display = "block";
+            document.getElementById("modalDetails").innerHTML = 'Persons name: ' + person['name'] +
+                "\n" + "<br>" + person['name'] + "'s height: " +
+                person['height'] + "<br>" + person['name'] + " 's mass: " + person['mass'] + '<br>'
+                 + person['name'] + " 's hair color: " + person['hair_color'] + '<br>'
+                 + person['name'] + " 's skin tone: " + person['skin_color'] + '<br>'
+                 + person['name'] + " 's eye color: " + person['eye_color'];
+                 //Close the modal when the X is clicked
+                 document.getElementsByClassName("close")[0].onclick = function () {
+                     document.getElementById("showModal").style.display = "none";
+
+                     
+                 }
         });
+
         personDisplayElement.classList.add('pagination');
         personDisplayElement.classList.add('person');
         elements = [
