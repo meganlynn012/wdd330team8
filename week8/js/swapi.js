@@ -67,10 +67,13 @@ function createNavigation(_numOfPeople, _prevUrl, _nextUrl) {
     previousButton.innerHTML = "&#8249;";
     buttonContainer.appendChild(previousButton);
     numPages = _numOfPeople % 10 == 0 ? (parseInt(_numOfPeople) / 10) : (parseInt(_numOfPeople / 10) + 1);
-    for (x = 1; x <= numPages; x++) {
+    for (let x = 1; x <= numPages; x++) {
         pageButton = document.createElement('button');
-        newUrl = "http://swapi.dev/api/people/?page=" + x;
-        pageButton.addEventListener('click', function() { fetchPeople(`http://swapi.dev/api/people/?page=${x}`) });
+        // newUrl = "http://swapi.dev/api/people/?page=" + x;
+        pageButton.addEventListener('click', () => {
+            console.log(`Value of y: ${x}`);
+            return fetchPeople("http://swapi.dev/api/people/?page=" + x);
+        });
         pageButton.textContent = x;
         pageButton.classList.add('pageIndex');
         buttonContainer.appendChild(pageButton);
