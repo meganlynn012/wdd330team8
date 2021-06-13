@@ -17,6 +17,8 @@
     margin: 0 auto 15% auto;
     padding: 20px;
     width: 80%;
+    font-size: 1.25em;
+    line-height: 125%;
 }
 .close {
     font-weight: bold;
@@ -24,4 +26,5 @@
     z-index: 2;
     color: white;
     padding: 10px;
+    cursor: pointer;
 }

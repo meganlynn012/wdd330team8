@@ -1,23 +1,17 @@
-dt {
-    font-weight: bold;
-}
+body {
+    background-image: url("outerspace.jpg");
+    background-color: black;
+    background-size: 1200px;
+    color: #feda4a;
+    }
 
-​ dd {
-    margin: 2px 10px;
+p {
+    text-align: center;
+    font-size: 2em;
+    cursor: pointer;
 }
-
-​ dl>* {
-    display: inline;
-}
-
-​ dl {
-    margin-bottom: 20px;
-    height: 15%;
-    display: flex;
-    align-items: center;
-    box-shadow: #5c5346 1px 1px 5px 1px;
-    padding: 5px;
-    flex-wrap: wrap;
+p:hover {
+    color: white;
 }
 
 ​ .buttons {
@@ -29,13 +23,4 @@ dt {
 ​ button {
     width: 20%;
     height: 30px;
-}
-
-.person {
-    border: 1px solid black;
-}
-
-.people {
-    width: 50%;
-    margin: 1em;
 }
