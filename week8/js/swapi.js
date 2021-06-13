@@ -28,10 +28,13 @@ function displayPeople(peopleList) {
     document.getElementById("descriptionDiv").classList = 'people';
     for (let person of peopleList) {
         const personDisplayElement = document.createElement("dl");
-        // personDisplayElement.addEventListener('click', () => {
-        //     // Display modal with data from person
-        //     return
-        // });
+        personDisplayElement.addEventListener('click', () => {
+            // Display modal with data from person
+            // Here is your code section...
+            alert('Persons Name: ' + person['name'] +
+                "\n" + person['name'] + "'s Height: " +
+                person['height']);
+        });
         personDisplayElement.classList.add('pagination');
         personDisplayElement.classList.add('person');
         elements = [
