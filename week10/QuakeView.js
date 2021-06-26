@@ -6,6 +6,7 @@ export default class QuakesView {
         if (quakeList.metadata.count < 1) {
             listElement.innerHTML = "No quakes found...";
         } else {
+            document.getElementById("buttonLink").innerHTML = `<a href="#top" id="topLink">Back to Top</a>`
             listElement.innerHTML = quakeList.features
                 .map(quake => {
                     return `${quake.properties.title}, ${new Date(
