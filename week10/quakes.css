@@ -12,7 +12,7 @@ ul {
 }
 
 label {
-    font-size: 1.25em;
+    font-size: 1.5em;
 }
 input {
     padding: 10px;
@@ -48,4 +48,5 @@ a#topLink {
 ul {
     border-top: 2px solid #54426B;
     padding-top: 1.5em;
+    font-size: 1.25em;
 }
