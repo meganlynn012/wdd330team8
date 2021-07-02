@@ -26,10 +26,9 @@ export default class Auth {
                 // });
                 const response = await makeRequest('login', 'POST', postData);
                 // 2. if we get a successful response...we have a token!  Store it since we will need to send it with every request to the API.
-                if (response.ok) {
-                    this.jwtToken = response.token;
-                    console.log("Success");
+                if (response.accessToken) {
                     console.log("Token:" + this.jwtToken);
+                    this.jwtToken = response.accessToken;
                 }
                 // let's get the user details as well and store them locally in the class
                 // you can pass a query to the API by appending it on the end of the url like this: 'users?email=' + email
@@ -38,10 +37,18 @@ export default class Auth {
                 document.querySelector('.loginForm').classList.add('hidden');
                 // clear the password
                 password.value = '';
-
+                if (this.user) {
+                    let resultingUser = "";
+                    this.user.forEach((user) => {
+                        for (let key in user) {
+                            resultingUser += key + ": " + user[key];
+                        }
+                    });
+                    document.querySelector('.resultUserData').innerHTML = resultingUser;
+                }
                 // since we have a token let's go grab some data from the API by executing the callback if one was passed in
                 if (callback) {
-                    callback();
+                    // callback();
                 }
             } catch (error) {
                 // if there were any errors display them
@@ -51,6 +58,13 @@ export default class Auth {
         // uses the email of the currently logged in user to pull up the full user details for that user from the database
     async getCurrentUser(email) {
         try {
+            const data = await makeRequest(
+                'users?email=' + email,
+                'GET',
+                null,
+                this.jwtToken
+            );
+            return data;
             // 3. add the code here to make a request for the user identified by email...don't forget to send the token!
         } catch (error) {
             // if there were any errors display them

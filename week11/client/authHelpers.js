@@ -12,6 +12,7 @@ export default async function makeRequest(url, method = 'GET', body = null, toke
     };
     // if a token was passed in we should send it on.
     if (token) {
+        console.log("Token found: " + token);
         options.headers.Authorization = `Bearer ${token}`;
     }
 
@@ -27,7 +28,7 @@ export default async function makeRequest(url, method = 'GET', body = null, toke
     if (!response.ok) {
         // server will send a 500 server error if the token expires...or a 401 if we are not authorized, ie bad username/password combination, and a 404 if the URL we requested does not exist. All of these would cause response.ok to be false
 
-        console.log("Fail: " + response);
+        console.log("Fail: " + response.status);
         throw new Error(`${data.status}: ${data.message}`);
     } else {
         console.log("Success: " + data);
