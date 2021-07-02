@@ -11,9 +11,13 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+    <form method="POST" class="loginForm">
+        <label for="username">Username (email):</label>
+        <input type="email" name="username" id="username">
+        <label for="password">Passwird:</label>
+        <input type="password" name="password" id="password">
+        <input class="submit" type="submit" value="Login">
+    </form>
 
     <script src="./week11.js" type="module" async defer></script>
 </body>
